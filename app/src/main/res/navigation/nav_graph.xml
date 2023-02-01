@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_home">
+
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="ug.code.unsplash.ui.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_search"
+            app:destination="@id/fragment_search"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action
+            android:id="@+id/action_fragment_home_to_activity_detail_image"
+            app:destination="@id/activity_detail_image"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_saved"
+        android:name="ug.code.unsplash.ui.save.SavedFragment"
+        tools:layout="@layout/fragment_saved">
+        <action
+            android:id="@+id/action_fragment_saved_to_activity_detail_image"
+            app:destination="@id/activity_detail_image"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+
+    <activity
+        android:id="@+id/activity_detail_image"
+        android:name="ug.code.unsplash.ui.image.DetailImageActivity"
+        tools:layout="@layout/activity_detail_image">
+        <argument
+            android:name="idNetworkPhoto"
+            app:argType="string" />
+        <argument
+            android:name="idLocalPhoto"
+            app:argType="integer" />
+        <argument
+            android:name="urlImageUser"
+            app:argType="string" />
+    </activity>
+
+    <fragment
+        android:id="@+id/fragment_search"
+        android:name="ug.code.unsplash.ui.search.SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <argument
+            android:name="query"
+            app:argType="string" />
+        <argument
+            android:name="tittle"
+            app:argType="string" />
+        <argument
+            android:name="totalPhotos"
+            app:argType="integer" />
+        <argument
+            android:name="whichSnippet"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_fragment_search_to_activity_detail_image"
+            app:destination="@id/activity_detail_image"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+
+</navigation>
